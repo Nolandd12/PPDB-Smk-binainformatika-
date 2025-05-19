@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promosi Sekolah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .marquee-wrapper {
+      overflow: hidden;
+      background-color: #003366;
+      color: white;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding: 10px;
+      white-space: nowrap;
+      animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .teks, .teks2 {
+      text-align: center;
+      color: black;
+      margin: 10px 0;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      color: black;
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .foto {
+      width: 200px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 5px solid skyblue;
+      animation: fadeIn 1s ease-in;
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .foto:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    section h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    .programs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .program {
+      flex: 1 1 30%;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      animation: fadeIn 1s ease-in;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .program:hover {
+      transform: scale(1.05);
+    }
+
+    .program img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .penjelasan {
+      display: none;
+      margin-top: 10px;
+      color: #333;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .program.active .penjelasan {
+      display: block;
+    }
+
+    .Kontak {
+      background-color: #8F8F8F;
+      padding: 20px;
+      color: white;
+    }
+
+    .Kontak h4, .Kontak p {
+      margin-bottom: 10px;
+    }
+
+    .com a {
+      text-decoration: none;
+      color: white;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    form#formPendaftaran {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form#formPendaftaran input {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    form#formPendaftaran button {
+      background-color: #25D366;
+      color: white;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form#formPendaftaran button:hover {
+      background-color: #1da851;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      .programs {
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 50px 10px;
+      }
+
+      .foto {
+        width: 150px;
+      }
+
+      .program {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Smk Bina Informatika</h1>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#program">Program</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <div class="marquee-wrapper">
+    <p class="marquee-text">AYO DAFTAR KE SMK BINA INFORMATIKA</p>
+  </div>
+
+  <h3 class="teks2">Sekolah Menengah Kejuruan Smk Bina Informatika </h3>
+  <h3 class="teks">Yayasan Pendidikan Nurul Ilma</h3>
+
+  <div class="hero">
+    <img class="foto" src="bifor.jpg" alt="Foto Sekolah" />
+    <h2>PPDB</h2>
+    <h2>Pendaftaran Peserta Didik Baru</h2>
+    <h2>Smk Bina Informatika</h2>
+    <h2>Tahun Ajaran 2025-2026</h2>
+    <p>AYO DAFTAR</p>
+    <p>Biaya Pendaftaran Hanya Rp.150.000 | DSP & lainnya Hanya Rp.3.800.000 Untuk 10 pendaftar utama mendapatkan potongan harga 1.800.000</p>
+    <p>Kami Punya Beberapa Program Unggulan Loh</p>
+    <p>Purbasari Purbarang Ayo Daftar Sekarang </p>
+    <p>Jalan Jalan Eh Nyasar, Nyesel Loh Kalo Gak Daftar </p>
+
+    <form id="formPendaftaran" onsubmit="kirimWhatsApp(); return false;">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      <input type="text" id="asalSekolah" placeholder="Asal Sekolah" required>
+      <input type="text" id="jurusan" placeholder="Jurusan Pilihan" required>
+      <input type="number" id="usia" placeholder="Usia" required>
+      <input type="tel" id="nomor" placeholder="Nomor WhatsApp Aktif" required>
+      <button type="submit">Daftar via WhatsApp</button>
+    </form>
+  </div>
+
+  <section id="tentang">
+    <h3>Tentang Kami</h3>
+    <p>Kami adalah sekolah yang berkomitmen memberikan pendidikan berkualitas dengan pendekatan modern, karakter kuat, dan teknologi terkini.</p>
+  </section>
+
+  <section id="program">
+    <h3>Kami Juga Mempunyai Beberapa Program Unggulan</h3>
+    <div class="programs">
+      <div class="program" onclick="togglePenjelasan(this)">
+        <img src="rpl.jpeg" alt="Rekayasa Perangkat Lunak">
+        <h4>Rekayasa Perangkat Lunak</h4>
+        <p>Fokus pada pembelajaran coding, membuat website dan aplikasi.</p>
+        <div class="penjelasan">
+          <p>RPL mempersiapkan siswa menjadi developer profesional. Diajarkan JavaScript, Python, Java, serta pembuatan aplikasi web dan mobile.</p>
+        </div>
+      </div>
+      <div class="program" onclick="togglePenjelasan(this)">
+        <img src="mm.jpeg" alt="Multimedia">
+        <h4>Multimedia</h4>
+        <p>Fokus pada desain grafis dan fotografi.</p>
+        <div class="penjelasan">
+          <p>Jurusan Multimedia mengajarkan editing video, fotografi, desain grafis, animasi, dan software seperti Photoshop, Adobe Premiere, dan lainnya.</p>
+        </div>
+      </div>
+      <div class="program" onclick="togglePenjelasan(this)">
+        <img src="TKJ.jpeg" alt="Teknik Komputer dan Jaringan">
+        <h4>Teknik Komputer dan Jaringan</h4>
+        <p>Berfokus pada instalasi jaringan dan hardware komputer.</p>
+        <div class="penjelasan">
+          <p>TKJ fokus pada perakitan PC, instalasi OS, setting jaringan LAN/WAN, serta keamanan jaringan dan troubleshooting hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="Kontak">
+    <h3>Kontak Kami</h3>
+    <h4><li>Email</li></h4>
+    <p><a href="mailto:smkbifor@gmail.com">smkbifor@gmail.com</a></p>
+    <h4><li>Telpon</li></h4>
+    <p class="com"><a href="https://wa.me/6289617354862">+62 896-1735-4862</a></p>
+    <h4><li>Alamat</li></h4>
+    <p>Jl. Re. Abdullah No.15, RT.02/RW.01, Pasir Jaya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16119</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Aditya Herlambang. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    function kirimWhatsApp() {
+      const nama = document.getElementById("nama").value;
+      const asalSekolah = document.getElementById("asalSekolah").value;
+      const jurusan = document.getElementById("jurusan").value;
+      const usia = document.getElementById("usia").value;
+      const nomor = document.getElementById("nomor").value;
+      const tanggal = new Date().toLocaleDateString('id-ID');
+
+      const pesan = `🧾 *BUKTI PENDAFTARAN SMK BINA INFORMATIKA* 🧾\n\n` +
+                    `🗓 Tanggal Pendaftaran: *${tanggal}*\n` +
+                    `📌 Nama Lengkap : *${nama}*\n` +
+                    `🏫 Asal Sekolah : *${asalSekolah}*\n` +
+                    `🎓 Jurusan Pilihan : *${jurusan}*\n` +
+                    `🔢 Usia : *${usia}*\n` +
+                    `📱 No. WhatsApp Aktif : *${nomor}*\n\n` +
+                    `💰 *Biaya Pendaftaran:* Rp150.000\n` +
+                    `💼 *DSP & Lainnya:* Rp3.800.000\n\n` +
+                    `✅ Saya berminat untuk mendaftar dan mohon informasi lebih lanjut.`;
+
+      const encoded = encodeURIComponent(pesan);
+      const nomorAdmin = "6289617354862";
+      const url = `https://wa.me/${nomorAdmin}?text=${encoded}`;
+      window.open(url, '_blank');
+    }
+
+    function togglePenjelasan(card) {
+      card.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
